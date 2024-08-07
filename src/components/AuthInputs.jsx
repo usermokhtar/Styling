@@ -34,8 +34,8 @@ export default function AuthInputs() {
     letter-spacing: 0.1em;
     text-transform: uppercase;
     /**invalid label conditional styled Components */
-    color: ${({ invalid }) =>
-      invalid ? '#f87171' : '#10b981'}; // updated line
+    color: ${({ $invalid }) =>
+      $invalid ? '#f87171' : '#10b981'}; // updated line
     text-align: center;
   `;
 
@@ -55,28 +55,28 @@ export default function AuthInputs() {
     border-color: #f73f3f;
     background-color: #fed2d2; */
     }
-    color: ${({ invalid }) => (invalid ? '#ef4444' : '#374151')};
-    border-color: ${({ invalid }) => (invalid ? '#f73f3f' : '')};
-    background-color: ${({ invalid }) => (invalid ? '#fed2d2' : ' #d1d5db')};
+    color: ${({ $invalid }) => ($invalid ? '#ef4444' : '#374151')};
+    border-color: ${({ $invalid }) => ($invalid ? '#f73f3f' : '')};
+    background-color: ${({ $invalid }) => ($invalid ? '#fed2d2' : ' #d1d5db')};
   `;
 
   return (
     <div id='auth-inputs'>
       <Container>
         <p>
-          <Label invalid={emailNotValid}>Email</Label>
+          <Label $invalid={emailNotValid}>Email</Label>
           <Input
             type='email'
-            invalid={emailNotValid}
+            $invalid={emailNotValid}
             className={emailNotValid ? 'invalid' : undefined}
             onChange={(event) => handleInputChange('email', event.target.value)}
           />
         </p>
         <p>
-          <Label>Password</Label>
+          <Label $invalid={emailNotValid}>Password</Label>
           <Input
             type='password'
-            invalid={emailNotValid}
+            $invalid={emailNotValid}
             className={passwordNotValid ? 'invalid' : undefined}
             onChange={(event) =>
               handleInputChange('password', event.target.value)
